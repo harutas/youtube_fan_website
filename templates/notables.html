@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+{% extends 'base.html' %} {% load static %} {% block main %}
+<div class="album py-5">
+  <div class="container">
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+      {% for notable in notables %}
+      <div class="col">
+        <div class="card shadow-sm">
+          <div class="d-flex justify-content-center align-items-center h-300">
+            <a
+              class="w-100 h-100 text-center d-flex justify-content-center align-items-center"
+              href="{% url 'youtube:notablesDetail' pk=youtube.id notableIndex=forloop.counter0 %}"
+            >
+              <img src="{% static notable.img_url %}" class="mw-100 mh-100" alt="" />
+            </a>
+          </div>
+
+          <div class="card-body">
+            <h2 class="card-text text-dark fs-3 mb-3">{{notable.name}}</h2>
+            <div class="d-flex justify-content-end align-items-center">
+              <a
+                href="{% url 'youtube:notablesDetail' pk=youtube.id notableIndex=forloop.counter0 %}"
+                class="border border-secondary border-1 rounded p-2"
+                style="text-decoration: none"
+                ><span class="text-secondary">Read More</span></a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+{% endblock %}

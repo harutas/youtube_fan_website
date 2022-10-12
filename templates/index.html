@@ -1,0 +1,9 @@
+<!DOCTYPE html>
+{% extends 'base.html' %} {% load static %} {% block main %}
+<div class="d-flex flex-wrap justify-content-around align-items-center col-12">
+  <h1 class="col-md-3 col-12 m-md-0 text-center mb-3 mb-md-0">{{ youtube.genre_name }}</h1>
+  <div class="col-md-6 col-12 col-md-7 d-flex justify-content-center">
+    <img src="{% static youtube.img_url %}" alt="" width="70%" />
+  </div>
+</div>
+{% endblock %}
